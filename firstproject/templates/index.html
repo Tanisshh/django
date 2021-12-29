@@ -1,10 +1,32 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "script.css" %}">
     <title></title>
   </head>
   <body>
     <h1>hello</h1>
+    <h2>here is my webpage list</h2>
+
+    {% if accessrecords %}
+      <table>
+        <thead>
+          <td>Webpage</td>
+          <td>Date</td>
+        </thead>
+
+        {% for acc in accessrecords %}
+          <tr>
+            <td>{{ acc.name }}</td>
+            <td>{{ acc.date }}</td>
+          </tr>
+        {% endfor%}
+      </table>
+    {% else %}
+      <p>no records found</p>
+    {% endif %}
+
   </body>
 </html>
