@@ -20,3 +20,11 @@ class Record(models.Model):
 
     def __str__(self):
         return str(self.date)
+
+class Signed_User(models.Model):
+    Name = models.CharField(max_length=250, unique=True)
+    Email = models.EmailField()
+    Password = models.CharField(max_length=250)
+
+    def __str__(self):
+        return str(self.Name)
